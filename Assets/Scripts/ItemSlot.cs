@@ -14,6 +14,9 @@ public class ItemSlot : MonoBehaviour
     public Item itemInfoInstance;
 
     private int quantityToAddOrSubs = 1;
+
+    [SerializeField] GameObject prefabItemResume;
+    [SerializeField] Transform prefabInstantiate;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +41,14 @@ public class ItemSlot : MonoBehaviour
     public void addQuantityItem()
     {
         Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
-        itemInfoInstance.quantityItem += quantityToAddOrSubs;      
+        itemInfoInstance.quantityItem += quantityToAddOrSubs;
+
+        if (itemInfoInstance.quantityItem > 0)
+        {   
+            Instantiate(prefabItemResume, prefabInstantiate);
+            Debug.Log("Instanciado");
+        }
+           
     }
 
     public void subsQuantityItem()
@@ -47,6 +57,7 @@ public class ItemSlot : MonoBehaviour
         if (itemInfoInstance.quantityItem <= 0)
         {
             Debug.Log("No se pueden quitar mas, no tienes");
+            Destroy(prefabItemResume);
         }
         else
         {

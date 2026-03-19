@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+public class ItemResumePrefab : MonoBehaviour
 {
-
-    public ArrayList items = new ArrayList();
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +14,5 @@ public class ShopManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void AddItemsToCart()
-    {
-        foreach (var item in items)
-        {
-
-        }
     }
 }
