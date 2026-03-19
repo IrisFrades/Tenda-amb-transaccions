@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 361373319682469730}
   - component: {fileID: 7068115263332034849}
   - component: {fileID: 690610557380835952}
+  - component: {fileID: 2863848966316910933}
   m_Layer: 5
   m_Name: ResumeItem
   m_TagString: Untagged
@@ -393,3 +394,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2863848966316910933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6714788938271178898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f99cc00c3644442a8121116ec510ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textNameItemResume: {fileID: 2808826301847778005}
+  textQuantityItemResume: {fileID: 8961659684410183199}
+  itemSlotInstance: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
+  itemInstance: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
