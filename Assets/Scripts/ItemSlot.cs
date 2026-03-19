@@ -32,7 +32,7 @@ public class ItemSlot : MonoBehaviour
 
     void UpdateUI()
     {
-        if(itemInfoInstance == null) { return; }
+        if(itemInfoInstance == null)  return; 
 
         textNameItem.text = itemInfoInstance.nameItem;
         imageItem.sprite = itemInfoInstance.imageItem;
