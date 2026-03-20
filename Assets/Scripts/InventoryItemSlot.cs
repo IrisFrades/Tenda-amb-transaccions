@@ -1,14 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryItemSlot : MonoBehaviour, IPointerClickHandler
 {
-
+    
     public GameObject selectedShader;
     public bool thisItemIsSelected;
+
+    public string itemName;
+    public int quantity;
+    public Sprite itemSprite;
+    public string itemDescription;
+
+    public Image itemImageUI;
+    public TextMeshProUGUI quantityTextUI;
+
+    public Image itemDescriptionImage;
+    public TextMeshProUGUI itemDescriptionName;
+    public TextMeshProUGUI itemDescriptionText;
+
 
     private InventoryManager inventoryManager;
 
@@ -23,10 +38,7 @@ public class InventoryItemSlot : MonoBehaviour, IPointerClickHandler
             OnLeftClick();
         }
 
-        if (eventData.button == PointerEventData.InputButton.Right)
-        {
-
-        }
+        
     }
 
     private void OnLeftClick()
@@ -34,6 +46,10 @@ public class InventoryItemSlot : MonoBehaviour, IPointerClickHandler
         inventoryManager.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemIsSelected = true;
+
+        itemDescriptionImage.sprite = itemSprite;
+        itemDescriptionName.text = itemName;
+        itemDescriptionText.text = itemDescription;
     }
 
     

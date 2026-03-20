@@ -39,8 +39,41 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            itemSlot[i].gameObject.SetActive(false);
+            itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemIsSelected = false;
         }
     }
+
+    public void AddItemToInventory(string name, int quantity, Sprite sprite, string description)
+    {
+        foreach(InventoryItemSlot slot in itemSlot)
+        {
+            if(slot.itemName == name)
+            {
+                slot.quantity += quantity;
+                slot.quantityTextUI.text = slot.quantity.ToString();
+                return;
+            }
+        }
+
+        foreach(InventoryItemSlot slot in itemSlot)
+        {
+            if (string.IsNullOrEmpty(slot.itemName))
+            {
+                slot.itemName = name;
+                slot.quantity = quantity;
+                slot.itemSprite = sprite;
+                slot.itemDescription = description;
+
+                slot.itemImageUI.sprite = sprite;
+                slot.itemImageUI.enabled = true;
+                slot.quantityTextUI.text = quantity.ToString();
+
+                return;
+            }
+        }
+
+        Debug.LogWarning("Inventario lleno");
+    }
+
 }
