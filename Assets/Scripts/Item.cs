@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
 
     [SerializeField] private int IDItem;
     [SerializeField] public string nameItem;
+    [SerializeField] public string descriptionItem;
     [SerializeField] public Sprite imageItem;
     public int quantityItem;
 

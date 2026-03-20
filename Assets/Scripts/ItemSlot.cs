@@ -15,19 +15,16 @@ public class ItemSlot : MonoBehaviour
 
     private int quantityToAddOrSubs = 1;
 
+    private ItemResumePrefab ItemresumeInstance;
+
     [SerializeField] GameObject prefabItemResume;
     [SerializeField] Transform prefabInstantiate;
-    // Start is called before the first frame update
+
     void Start()
     {
         if (!Application.isPlaying) return;
 
         UpdateUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void UpdateUI()
@@ -40,13 +37,20 @@ public class ItemSlot : MonoBehaviour
 
     public void addQuantityItem()
     {
-        Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
+        
         itemInfoInstance.quantityItem += quantityToAddOrSubs;
+        Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
 
-        if (itemInfoInstance.quantityItem > 0)
-        {   
-            Instantiate(prefabItemResume, prefabInstantiate);
-            Debug.Log("Instanciado");
+        if(ItemresumeInstance == null)
+        {
+            GameObject obj = Instantiate(prefabItemResume, prefabInstantiate); //Instanciamos el gameObject a la lista de resumen
+            ItemresumeInstance = obj.GetComponent<ItemResumePrefab>();
+            ItemresumeInstance.SetItem(itemInfoInstance);
+            Debug.Log("Instanciado prefab del resumen");
+        }
+        else
+        {
+            ItemresumeInstance.UpdateQuantity(itemInfoInstance.quantityItem);
         }
            
     }
@@ -54,15 +58,26 @@ public class ItemSlot : MonoBehaviour
     public void subsQuantityItem()
     {
 
-        if (itemInfoInstance.quantityItem <= 0)
+        if (itemInfoInstance.quantityItem <= 0) //Cuando no tienes mas elementos
         {
             Debug.Log("No se pueden quitar mas, no tienes");
-            Destroy(prefabItemResume);
+            return;
+        }
+
+        itemInfoInstance.quantityItem -= quantityToAddOrSubs; //quitamos un elemento
+        Debug.Log("Has eliminado un elemento de: " + itemInfoInstance.nameItem);
+
+        if(itemInfoInstance.quantityItem == 0) //si la cantidad es 0
+        {
+            if(ItemresumeInstance != null) //si el prefab del item no es null (o sea aun esta en escena)
+            {
+                Destroy(ItemresumeInstance.gameObject); //eliminamos su gameObject
+                ItemresumeInstance = null; //seteamos la instancia a null
+            }
         }
         else
         {
-            Debug.Log("Has eliminado un elemento de: " + itemInfoInstance.nameItem);
-            itemInfoInstance.quantityItem -= quantityToAddOrSubs;
+            ItemresumeInstance.UpdateQuantity(itemInfoInstance.quantityItem); //actualizamos la cantidad
         }
 
     }

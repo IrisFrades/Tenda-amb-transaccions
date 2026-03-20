@@ -13,19 +13,19 @@ public class ItemResumePrefab : MonoBehaviour
     public Item itemInstance;
     
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetItem(Item item) //seteamos un item
     {
+        itemInstance = item;
         UpdateUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateQuantity(int newQuantity) //se actualiza la cantidad del item
     {
-        
+        itemInstance.quantityItem = newQuantity;
+        UpdateUI();
     }
 
-    void UpdateUI()
+    void UpdateUI() //actualizamos la UI
     {
         textNameItemResume.text = itemInstance.nameItem;
         textQuantityItemResume.text = itemInstance.quantityItem.ToString();

@@ -6,13 +6,15 @@ public class InventoryManager : MonoBehaviour
 {
 
     public GameObject IntentoryMenu;
-    private bool menuActivated; 
+    private bool menuActivated;
+
+    public InventoryItemSlot[] itemSlot;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,6 +32,15 @@ public class InventoryManager : MonoBehaviour
             Time.timeScale = 0;
             IntentoryMenu.SetActive(true);
             menuActivated = true;
+        }
+    }
+
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            itemSlot[i].gameObject.SetActive(false);
+            itemSlot[i].thisItemIsSelected = false;
         }
     }
 }
