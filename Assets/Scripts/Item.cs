@@ -10,6 +10,7 @@ public class Item : MonoBehaviour
     [SerializeField] public string nameItem;
     [SerializeField] public string descriptionItem;
     [SerializeField] public Sprite imageItem;
+    [SerializeField] public float money;
     public int quantityItem;
 
 }

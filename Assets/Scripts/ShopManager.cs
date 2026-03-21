@@ -5,25 +5,16 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
 
-    public ArrayList items = new ArrayList();
+    public List<Item> allShopItems;
 
-    // Start is called before the first frame update
-    void Start()
+    //Reseteamos las cantidades al comprar a 0 de nuevo
+    public void ResetShopQuantities()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void AddItemsToCart()
-    {
-        foreach (var item in items)
+        foreach (Item item in allShopItems)
         {
-
+            item.quantityItem = 0;
         }
     }
+
+
 }

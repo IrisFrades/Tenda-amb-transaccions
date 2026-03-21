@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,6 +27,7 @@ public class ItemSlot : MonoBehaviour
         UpdateUI();
     }
 
+    //Actualizamos la UI
     void UpdateUI()
     {
         if(itemInfoInstance == null)  return; 
@@ -35,50 +36,80 @@ public class ItemSlot : MonoBehaviour
         imageItem.sprite = itemInfoInstance.imageItem;
     }
 
+
+    //Metodo para añadir productos de la lista
     public void addQuantityItem()
     {
         
-        itemInfoInstance.quantityItem += quantityToAddOrSubs;
-        Debug.Log("Has a�adido un elemento mas de: " + itemInfoInstance.nameItem);
+        itemInfoInstance.quantityItem += quantityToAddOrSubs;//se suma 1 a la cantidad 
+        Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
 
-        if(ItemresumeInstance == null)
+        ResumeShopManager resume = FindObjectOfType<ResumeShopManager>();
+
+        if (ItemresumeInstance == null)
         {
-            GameObject obj = Instantiate(prefabItemResume, prefabInstantiate); //Instanciamos el gameObject a la lista de resumen
+            // Instanciar el prefab del resumen
+            GameObject obj = Instantiate(prefabItemResume, prefabInstantiate);
             ItemresumeInstance = obj.GetComponent<ItemResumePrefab>();
             ItemresumeInstance.SetItem(itemInfoInstance);
-            Debug.Log("Instanciado prefab del resumen");
+
+            // añadimos el item a la lista de resumen
+            resume.resumeItems.Add(itemInfoInstance);
+
+            Debug.Log("Instanciado prefab del resumen y añadido a resumeItems");
         }
         else
         {
+            // Actualizar cantidad en el prefab del resumen
             ItemresumeInstance.UpdateQuantity(itemInfoInstance.quantityItem);
         }
-           
+
+        // Actualizar precio total
+        resume.UpdateTotalPrice();
+
+
     }
 
+
+    //Metodo para quitar productos de la lista
     public void subsQuantityItem()
     {
 
-        if (itemInfoInstance.quantityItem <= 0) //Cuando no tienes mas elementos
+        if (itemInfoInstance.quantityItem <= 0)
         {
             Debug.Log("No se pueden quitar mas, no tienes");
             return;
         }
 
-        itemInfoInstance.quantityItem -= quantityToAddOrSubs; //quitamos un elemento
+        itemInfoInstance.quantityItem -= quantityToAddOrSubs;
         Debug.Log("Has eliminado un elemento de: " + itemInfoInstance.nameItem);
 
-        if(itemInfoInstance.quantityItem == 0) //si la cantidad es 0
+        ResumeShopManager resume = FindObjectOfType<ResumeShopManager>();
+
+        if (itemInfoInstance.quantityItem == 0)
         {
-            if(ItemresumeInstance != null) //si el prefab del item no es null (o sea aun esta en escena)
+            // Si llega a 0, eliminar el prefab del resumen
+            if (ItemresumeInstance != null)
             {
-                Destroy(ItemresumeInstance.gameObject); //eliminamos su gameObject
-                ItemresumeInstance = null; //seteamos la instancia a null
+                Destroy(ItemresumeInstance.gameObject);
+                ItemresumeInstance = null;
+
+                // quitamos el item de la lista del resumen
+                resume.resumeItems.Remove(itemInfoInstance);
+
+                Debug.Log("Item eliminado del resumen y de resumeItems");
             }
         }
         else
         {
-            ItemresumeInstance.UpdateQuantity(itemInfoInstance.quantityItem); //actualizamos la cantidad
+            // Actualizar cantidad en el prefab del resumen
+            ItemresumeInstance.UpdateQuantity(itemInfoInstance.quantityItem);
         }
+
+        // Actualizar precio total
+        resume.UpdateTotalPrice();
+
+
 
     }
 
