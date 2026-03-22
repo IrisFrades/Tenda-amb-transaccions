@@ -17,7 +17,6 @@ public class ItemSlot : MonoBehaviour
     private int quantityToAddOrSubs = 1;
 
     private ItemResumePrefab ItemresumeInstance;
-    [SerializeField]private Item itemInstance;
 
     [SerializeField] GameObject prefabItemResume;
     [SerializeField] Transform prefabInstantiate;
@@ -36,7 +35,7 @@ public class ItemSlot : MonoBehaviour
 
         textNameItem.text = itemInfoInstance.nameItem;
         imageItem.sprite = itemInfoInstance.imageItem;
-        costProduct.text = itemInstance.money.ToString("F2") + " €";
+        costProduct.text = itemInfoInstance.money.ToString("F2") + " €";
     }
 
 

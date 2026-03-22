@@ -28,7 +28,7 @@ public class ItemResumePrefab : MonoBehaviour
     void UpdateUI() //actualizamos la UI
     {
         textNameItemResume.text = itemInstance.nameItem;
-        textQuantityItemResume.text = itemInstance.quantityItem.ToString();
+        textQuantityItemResume.text = itemInstance.quantityItem.ToString() + "x";
      
     }
 }

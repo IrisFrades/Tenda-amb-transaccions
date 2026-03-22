@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+
+public class Item: MonoBehaviour 
 {
 
     [SerializeField] private int IDItem;
@@ -13,6 +14,15 @@ public class Item : MonoBehaviour
     [SerializeField] public float money;
     public int quantityItem = 0;
 
+    public Item(Item other)
+    {
+        IDItem = other.IDItem;
+        nameItem = other.nameItem;
+        descriptionItem = other.descriptionItem;
+        imageItem = other.imageItem;
+        money = other.money;
+        quantityItem = other.quantityItem;
+    }
 
 
 }
