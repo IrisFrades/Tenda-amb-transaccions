@@ -27,11 +27,11 @@ public class ResumeShopManager : MonoBehaviour
             totalCost += item.money * item.quantityItem; //el coste total es la suma del dinero y la cantidad de ese item
         }
 
-        int money = dbManager.GetUserMoney(); //se obtiene el dinero del usuario
+        float money = dbManager.GetUserMoney(); //se obtiene el dinero del usuario
 
         if (money >= totalCost) //si el dinero que tiene es mayor o igual al coste total
         {
-            int newMoney = money - (int)totalCost; //le quitamos el dinero
+            float newMoney = money - (float)totalCost; //le quitamos el dinero
 
             dbManager.UpdateUserMoney(newMoney); //actualizamos el dinero en la base de datos
 
@@ -61,6 +61,8 @@ public class ResumeShopManager : MonoBehaviour
     //Aqui se actualiza el precio total del resumen
     public void UpdateTotalPrice()
     {
+
+
         float total = 0;
 
         foreach (Item item in resumeItems)
@@ -68,7 +70,7 @@ public class ResumeShopManager : MonoBehaviour
             total += item.money * item.quantityItem;
         }
 
-        totalPriceResumeText.text = total.ToString();
+        totalPriceResumeText.text = "Total: " + total.ToString("F2") + " €";
     }
 
     //Metodo para limpiar la lista del resumen en cuanto compras 
@@ -84,7 +86,7 @@ public class ResumeShopManager : MonoBehaviour
         }
 
         // Y reiniciamos el texto del precio total
-        totalPriceResumeText.text = "0";
+        totalPriceResumeText.text = "Total:" + "0";
     }
 
 

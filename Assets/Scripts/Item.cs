@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
     [SerializeField] public string descriptionItem;
     [SerializeField] public Sprite imageItem;
     [SerializeField] public float money;
-    public int quantityItem;
+    public int quantityItem = 0;
+
+
 
 }

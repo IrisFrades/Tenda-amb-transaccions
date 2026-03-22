@@ -10,12 +10,14 @@ public class ItemSlot : MonoBehaviour
     public Image imageItem;
     public Button addButton;
     public Button subsButton;
+    public TextMeshProUGUI costProduct;
 
     public Item itemInfoInstance;
 
     private int quantityToAddOrSubs = 1;
 
     private ItemResumePrefab ItemresumeInstance;
+    [SerializeField]private Item itemInstance;
 
     [SerializeField] GameObject prefabItemResume;
     [SerializeField] Transform prefabInstantiate;
@@ -34,13 +36,15 @@ public class ItemSlot : MonoBehaviour
 
         textNameItem.text = itemInfoInstance.nameItem;
         imageItem.sprite = itemInfoInstance.imageItem;
+        costProduct.text = itemInstance.money.ToString("F2") + " €";
     }
 
 
     //Metodo para añadir productos de la lista
     public void addQuantityItem()
     {
-        
+        Debug.Log("Cantidad ANTES de sumar: " + itemInfoInstance.quantityItem);
+
         itemInfoInstance.quantityItem += quantityToAddOrSubs;//se suma 1 a la cantidad 
         Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
 
@@ -56,7 +60,6 @@ public class ItemSlot : MonoBehaviour
             // añadimos el item a la lista de resumen
             resume.resumeItems.Add(itemInfoInstance);
 
-            Debug.Log("Instanciado prefab del resumen y añadido a resumeItems");
         }
         else
         {

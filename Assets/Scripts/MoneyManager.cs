@@ -19,6 +19,6 @@ public class MoneyManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        moneyText.text = money.ToString();
+        moneyText.text = "Dinero: " + money.ToString("F2") + " €";
     }
 }

@@ -53,24 +53,35 @@ public class DBManager : MonoBehaviour
     //Metodo para añadir los items a la base de datos
     public void InsertItemToDB(Item item)
     {
-        using(var connection = new SqliteConnection(dbPath))
+        using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
-            using(var command = connection.CreateCommand())
+
+            using(var transaction = connection.BeginTransaction()) //empezamos una transaccion
             {
-                command.CommandText =
-                    "INSERT OR REPLACE INTO Item (name, description, quantity) " +
-                    "VALUES (@name, @description, @quantity)";
+                try
+                {
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT OR REPLACE INTO Item (name, description, quantity) " +
+                            "VALUES (@name, @description, @quantity)";
 
+                        command.Parameters.AddWithValue("@name", item.nameItem);
+                        command.Parameters.AddWithValue("@description", item.descriptionItem);
+                        command.Parameters.AddWithValue("@quantity", item.quantityItem);
 
-                command.Parameters.AddWithValue("@name", item.nameItem);
-                command.Parameters.AddWithValue("@description", item.descriptionItem);
-                command.Parameters.AddWithValue("@quantity", item.quantityItem);
+                        command.ExecuteNonQuery();
+                    }
 
-                command.ExecuteNonQuery();   
-                
-
-            }
+                    transaction.Commit();//si no hay errores, se guardan los cambios
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError("No se ha podido insertar el item : " + ex.Message);
+                    transaction.Rollback(); //revertemos los cambios
+                }
+            }          
         }
 
         Debug.Log("Item guardado en la base de datos " + item.nameItem);
@@ -90,7 +101,7 @@ public class DBManager : MonoBehaviour
                     "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name TEXT NOT NULL UNIQUE, " +
                     "description TEXT NOT NULL, " +
-                    "price INTEGER NOT NULL)";
+                    "price REAL NOT NULL)"; //para que salgan los decimales
 
                 command.ExecuteNonQuery();
             }
@@ -110,7 +121,7 @@ public class DBManager : MonoBehaviour
                 command.CommandText =
                     "CREATE TABLE IF NOT EXISTS User (" +
                     "ID INTEGER PRIMARY KEY, " +
-                    "money INTEGER NOT NULL)";
+                    "money REAL NOT NULL)";
 
                 command.ExecuteNonQuery();
             }
@@ -119,7 +130,7 @@ public class DBManager : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 command.CommandText =
-                    "INSERT OR IGNORE INTO User (ID, money) VALUES (1, 1000)";
+                    "INSERT INTO User (ID, money) VALUES (1, 1000)";
                 command.ExecuteNonQuery();
             }
         }
@@ -128,7 +139,7 @@ public class DBManager : MonoBehaviour
     }
 
     //Metodo para sacar el precio del dinero
-    public int GetItemPrice(string itemName)
+    public float GetItemPrice(string itemName)
     {
         using (var connection = new SqliteConnection(dbPath))
         {
@@ -141,7 +152,7 @@ public class DBManager : MonoBehaviour
                 var result = command.ExecuteScalar();
 
                 if (result != null)
-                    return int.Parse(result.ToString());
+                    return float.Parse(result.ToString());
             }
         }
 
@@ -150,7 +161,7 @@ public class DBManager : MonoBehaviour
     }
 
     //Metodo para sacar el dinero que tiene el usuario
-    public int GetUserMoney()
+    public float GetUserMoney()
     {
         using (var connection = new SqliteConnection(dbPath))
         {
@@ -162,7 +173,7 @@ public class DBManager : MonoBehaviour
                 var result = command.ExecuteScalar();
 
                 if (result != null)
-                    return int.Parse(result.ToString());
+                    return float.Parse(result.ToString());
             }
         }
 
@@ -170,25 +181,34 @@ public class DBManager : MonoBehaviour
         return 0;
     }
 
-    //Metodo para actualizar el dinero del usuario cuando se compra
-    public void UpdateUserMoney(int newMoney)
+
+    public void UpdateUserMoney(float newMoney)
     {
         using (var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
-            using (var command = connection.CreateCommand())
+            
+            using( var transaction = connection.BeginTransaction()) //creamos una transaccion (o sea todo lo que hay dentro se tiene que guardar y si hay algun error no se guardara nada)
             {
-                command.CommandText = "UPDATE User SET money = @money WHERE ID = 1";
-                command.Parameters.AddWithValue("@money", newMoney);
+                try //En caso que salte algun error saltara al catch
+                {
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE User SET money = @money WHERE ID = 1";
+                        command.Parameters.AddWithValue("@money", newMoney);
 
-                command.ExecuteNonQuery();
+                        command.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit(); //si todo esta correcto, se guardan los cambios
+                }
+                catch (System.Exception ex) //si hay algun error dentro del try pasara aqui
+                {
+                    Debug.LogError("No se ha podido actualizar el dinero: " + ex.Message); 
+
+                    transaction.Rollback(); //En el caso que haya echo algun cambio, lo deshace
+                }
             }
         }
-
-        Debug.Log("Dinero del jugador actualizado: " + newMoney);
     }
-
-
-
-
 }

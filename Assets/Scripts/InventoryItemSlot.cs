@@ -36,9 +36,7 @@ public class InventoryItemSlot : MonoBehaviour, IPointerClickHandler
         if(eventData.button == PointerEventData.InputButton.Left)
         {
             OnLeftClick();
-        }
-
-        
+        }    
     }
 
     private void OnLeftClick()
