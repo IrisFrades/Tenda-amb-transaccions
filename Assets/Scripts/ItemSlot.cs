@@ -42,7 +42,6 @@ public class ItemSlot : MonoBehaviour
     //Metodo para añadir productos de la lista
     public void addQuantityItem()
     {
-        Debug.Log("Cantidad ANTES de sumar: " + itemInfoInstance.quantityItem);
 
         itemInfoInstance.quantityItem += quantityToAddOrSubs;//se suma 1 a la cantidad 
         Debug.Log("Has añadido un elemento mas de: " + itemInfoInstance.nameItem);
