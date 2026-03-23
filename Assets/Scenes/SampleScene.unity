@@ -2505,7 +2505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -470
+      value: -490
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2731,14 +2731,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3118,7 +3118,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: 537, y: 620}
+  m_SizeDelta: {x: 577, y: 620}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &781817938
 MonoBehaviour:
@@ -3141,7 +3141,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 1
   m_CellSize: {x: 550, y: 150}
-  m_Spacing: {x: 10, y: 10}
+  m_Spacing: {x: 30, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &781817939
@@ -3317,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 860
+      value: 880
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8250,11 +8250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 860
+      value: 880
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8748,7 +8748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 2884219635829705406, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8812,7 +8812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: money
-      value: 1.67
+      value: 5.99
       objectReference: {fileID: 0}
     - target: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: IDItem
@@ -8820,15 +8820,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: nameItem
-      value: Patata
+      value: Torrente, presidente
       objectReference: {fileID: 0}
     - target: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+      objectReference: {fileID: 21300000, guid: b642d8f82535b3b4c8337971f3bb1d83, type: 3}
     - target: {fileID: 4686566493316046644, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: descriptionItem
-      value: Tuberculo
+      value: "Han pasado a\xF1os desde su \xFAltima y desastrosa \u201Cmisi\xF3n\u201D,
+        pero Jos\xE9 Luis Torrente est\xE1 convencido de que Espa\xF1a pasa su momento
+        m\xE1s cr\xEDtico\u2026 y que s\xF3lo \xE9l puede salvarla"
       objectReference: {fileID: 0}
     - target: {fileID: 5884712187656065535, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_Color.a
