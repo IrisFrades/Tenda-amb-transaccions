@@ -33,7 +33,7 @@ public class ResumeShopManager : MonoBehaviour
         {
             float newMoney = money - (float)totalCost; //le quitamos el dinero
 
-            dbManager.UpdateUserMoney(newMoney); //actualizamos el dinero en la base de datos
+            dbManager.UpdateUserMoneyWhenBuying(newMoney); //actualizamos el dinero en la base de datos
 
             moneyManager.money = newMoney;
             moneyManager.UpdateUI(); //y actualizamos la UI
@@ -43,7 +43,7 @@ public class ResumeShopManager : MonoBehaviour
             {
                 dbManager.InsertItemToDB(item);
 
-                inventoryManager.AddItemToInventory(item.nameItem, item.quantityItem, item.imageItem, item.descriptionItem);
+                inventoryManager.AddItemToInventory(item.nameItem, item.quantityItem, item.imageItem, item.descriptionItem, item.money);
             }
 
             //limpiamos la zona del resumen de la lista

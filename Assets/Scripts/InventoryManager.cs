@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryItemSlot[] itemSlot;
 
+    [SerializeField] MoneyManager moneyManager;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItemToInventory(string name, int quantity, Sprite sprite, string description)
+    public void AddItemToInventory(string name, int quantity, Sprite sprite, string description, float price)
     {
         foreach(InventoryItemSlot slot in itemSlot)
         {
@@ -64,6 +66,7 @@ public class InventoryManager : MonoBehaviour
                 slot.quantity = quantity;
                 slot.itemSprite = sprite;
                 slot.itemDescription = description;
+                slot.itemPrice = price;
 
                 slot.itemImageUI.sprite = sprite;
                 slot.itemImageUI.enabled = true;
@@ -74,6 +77,54 @@ public class InventoryManager : MonoBehaviour
         }
 
         Debug.LogWarning("Inventario lleno");
+    }
+
+    public void SellItems()
+    {
+        InventoryItemSlot selectedSlot = null;
+
+        foreach(var slot in itemSlot)
+        {
+            if(slot.thisItemIsSelected)
+            {
+                selectedSlot = slot;
+                break;
+            }
+        }
+
+        if(selectedSlot == null)
+        {
+            Debug.Log("No se ha seleccionado ningun item");
+            return;
+        }
+
+        float moneyToReturn = selectedSlot.itemPrice * selectedSlot.quantity; //precio del item x la cantidad del item que tenemos
+
+        DBManager db = FindObjectOfType<DBManager>();
+
+        float currentMoney = db.GetUserMoney();
+
+        float newMoney = currentMoney + moneyToReturn;
+
+        db.UpdateUserMoneyWhenSelling(newMoney);
+        moneyManager.money = newMoney;
+        moneyManager.UpdateUI();
+
+        //vaciar el slot del item vendido
+        selectedSlot.itemName = "";
+        selectedSlot.quantity = 0;
+        selectedSlot.itemSprite = null;
+        selectedSlot.itemDescription = "";
+        selectedSlot.itemPrice = 0;
+
+        selectedSlot.itemImageUI.enabled = false;
+        selectedSlot.quantityTextUI.text = "";
+        selectedSlot.selectedShader.SetActive(false);
+        selectedSlot.thisItemIsSelected = false;
+
+        Debug.Log("Item venut correctament");
+
+
     }
 
 }

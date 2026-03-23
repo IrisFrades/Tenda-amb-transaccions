@@ -1,6 +1,8 @@
 using UnityEngine;
 using Mono.Data.Sqlite;
 using System.IO;
+using JetBrains.Annotations;
+using System.Runtime.InteropServices;
 
 public class DBManager : MonoBehaviour
 {
@@ -182,7 +184,7 @@ public class DBManager : MonoBehaviour
     }
 
 
-    public void UpdateUserMoney(float newMoney)
+    public void UpdateUserMoneyWhenBuying(float newMoney)
     {
         using (var connection = new SqliteConnection(dbPath))
         {
@@ -207,6 +209,36 @@ public class DBManager : MonoBehaviour
                     Debug.LogError("No se ha podido actualizar el dinero: " + ex.Message); 
 
                     transaction.Rollback(); //En el caso que haya echo algun cambio, lo deshace
+                }
+            }
+        }
+    }
+
+    public void UpdateUserMoneyWhenSelling(float newMoney)
+    {
+        using(var connection = new SqliteConnection(dbPath))
+        {
+            connection.Open();
+
+            using( var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    using(var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE User SET money = @money WHERE ID = 1";
+                        command.Parameters.AddWithValue("@money", newMoney);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+
+                }catch(System.Exception ex)
+                {
+                    Debug.LogError("No se ha podido actualizar el dinero: " + ex.Message);
+
+                    transaction.Rollback();
                 }
             }
         }

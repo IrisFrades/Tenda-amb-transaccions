@@ -24,6 +24,9 @@ public class InventoryItemSlot : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI itemDescriptionName;
     public TextMeshProUGUI itemDescriptionText;
 
+    public float itemPrice;
+
+
 
     private InventoryManager inventoryManager;
 
