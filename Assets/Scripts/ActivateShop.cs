@@ -5,15 +5,39 @@ using UnityEngine.UI;
 
 public class ActivateShop : MonoBehaviour
 {
-    private bool shopActive;
     public GameObject shopMenu;
+    public GameObject imageShop;
+
+    public GameObject inventoryMenu;
+    public GameObject imageInventory;
+
+    private void Awake()
+    {
+        imageShop.SetActive(false);
+        imageInventory.SetActive(false);
+    }
 
     public void ToggleShop()
     {
-        shopActive = !shopActive;
-
-        shopMenu.SetActive(shopActive);
-
-        Time.timeScale = shopActive ? 0 : 1;//activar o desactivar el timescale segun como este la variable shopActive
+        shopMenu.SetActive(true);
+        imageShop.SetActive(true);
     }
+
+    public void ToggleInventory()
+    {
+        inventoryMenu.SetActive(true);
+        imageInventory.SetActive(true);
+    }
+
+    public void NonToggleShop()
+    {
+        shopMenu.SetActive(false);
+        imageShop.SetActive(false);
+    }
+    public void NonToggleInventory()
+    {
+        inventoryMenu.SetActive(false);
+        imageInventory.SetActive(false);
+    }
+
 }

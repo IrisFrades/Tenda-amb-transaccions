@@ -144,7 +144,6 @@ MonoBehaviour:
   subsButton: {fileID: 3137436473081312726}
   costProduct: {fileID: 1840746286669443899}
   itemInfoInstance: {fileID: 4686566493316046644}
-  itemInstance: {fileID: 4686566493316046644}
   prefabItemResume: {fileID: 0}
   prefabInstantiate: {fileID: 0}
 --- !u!1 &663249463059061814
@@ -1065,7 +1064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 369.4501, y: -75}
+  m_AnchoredPosition: {x: 369.4501, y: 0}
   m_SizeDelta: {x: 145, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &651830814626063733

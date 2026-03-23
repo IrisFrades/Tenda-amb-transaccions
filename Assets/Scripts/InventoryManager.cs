@@ -102,13 +102,13 @@ public class InventoryManager : MonoBehaviour
 
         DBManager db = FindObjectOfType<DBManager>();
 
-        float currentMoney = db.GetUserMoney();
+        float currentMoney = db.GetUserMoney(); //Sacamos el dinero que tiene el usuario
 
-        float newMoney = currentMoney + moneyToReturn;
+        float newMoney = currentMoney + moneyToReturn; //el dinero nuevo sera el dinero actual mas el dinero que hay que devolver
 
-        db.UpdateUserMoneyWhenSelling(newMoney);
+        db.UpdateUserMoneyWhenSelling(newMoney); //Actualizamos el dinero de la base con el nuevo que se ha calculado
         moneyManager.money = newMoney;
-        moneyManager.UpdateUI();
+        moneyManager.UpdateUI(); //actualizamos la UI
 
         //vaciar el slot del item vendido
         selectedSlot.itemName = "";
