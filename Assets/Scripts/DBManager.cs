@@ -183,7 +183,7 @@ public class DBManager : MonoBehaviour
         return 0;
     }
 
-
+    //Actualizar el dinero de la base cuando se compran items en el inventario
     public void UpdateUserMoneyWhenBuying(float newMoney)
     {
         using (var connection = new SqliteConnection(dbPath))
@@ -214,31 +214,32 @@ public class DBManager : MonoBehaviour
         }
     }
 
+    //Actualizar el dinero de la base cuando se venden los items en el inventario
     public void UpdateUserMoneyWhenSelling(float newMoney)
     {
         using(var connection = new SqliteConnection(dbPath))
         {
             connection.Open();
 
-            using( var transaction = connection.BeginTransaction())
+            using( var transaction = connection.BeginTransaction()) //Empezamos transaccion
             {
                 try
                 {
                     using(var command = connection.CreateCommand())
                     {
-                        command.CommandText = "UPDATE User SET money = @money WHERE ID = 1";
+                        command.CommandText = "UPDATE User SET money = @money WHERE ID = 1"; //Actualizar el dinero de la base al recuperar dinero
                         command.Parameters.AddWithValue("@money", newMoney);
 
                         command.ExecuteNonQuery();
                     }
 
-                    transaction.Commit();
+                    transaction.Commit(); //Se ejecuta la transaccion si todo esta correcto
 
                 }catch(System.Exception ex)
                 {
                     Debug.LogError("No se ha podido actualizar el dinero: " + ex.Message);
 
-                    transaction.Rollback();
+                    transaction.Rollback(); //Deshace los cambios al haber error
                 }
             }
         }
