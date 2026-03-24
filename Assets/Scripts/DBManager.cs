@@ -3,6 +3,7 @@ using Mono.Data.Sqlite;
 using System.IO;
 using JetBrains.Annotations;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 
 public class DBManager : MonoBehaviour
 {
@@ -244,4 +245,46 @@ public class DBManager : MonoBehaviour
             }
         }
     }
+    //Metode per carregar els items que te el player
+    public List<Item> LoadPlayerItems()
+    {
+        List<Item> items = new List<Item>();
+
+        using (var connection = new SqliteConnection(dbPath))
+        {
+            connection.Open();
+
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT name, description, quantity FROM Item";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Item item = new Item();
+                        item.nameItem = reader.GetString(0);
+                        item.descriptionItem = reader.GetString(1);
+                        item.quantityItem = reader.GetInt32(2);
+
+                        // Recuperar preu i sprite del catàleg
+                        ShopManager shop = FindObjectOfType<ShopManager>();
+                        Item shopItem = shop.allShopItems.Find(i => i.nameItem == item.nameItem);
+
+                        if (shopItem != null)
+                        {
+                            item.money = shopItem.money;
+                            item.imageItem = shopItem.imageItem;
+                        }
+
+                        items.Add(item);
+                    }
+                }
+            }
+        }
+
+        return items;
+    }
+
+
 }

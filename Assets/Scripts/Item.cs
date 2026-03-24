@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Item: MonoBehaviour 
+[System.Serializable]
+public class Item 
 {
 
     [SerializeField] private int IDItem;
@@ -13,6 +13,8 @@ public class Item: MonoBehaviour
     [SerializeField] public Sprite imageItem;
     [SerializeField] public float money;
     public int quantityItem = 0;
+
+    public Item() { }
 
     public Item(Item other)
     {
@@ -24,5 +26,5 @@ public class Item: MonoBehaviour
         quantityItem = other.quantityItem;
     }
 
-
+    
 }

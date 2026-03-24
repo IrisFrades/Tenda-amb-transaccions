@@ -127,4 +127,22 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void LoadInventoryFromDB()
+    {
+        DBManager db = FindObjectOfType<DBManager>();
+        List<Item> items = db.LoadPlayerItems();
+
+        foreach (Item item in items)
+        {
+            AddItemToInventory(
+                item.nameItem,
+                item.quantityItem,
+                item.imageItem,
+                item.descriptionItem,
+                item.money
+            );
+        }
+    }
+
+
 }
