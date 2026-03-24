@@ -245,7 +245,7 @@ public class DBManager : MonoBehaviour
             }
         }
     }
-    //Metode per carregar els items que te el player
+    //Metodo para cargar lso items que tiene el player comprados
     public List<Item> LoadPlayerItems()
     {
         List<Item> items = new List<Item>();
