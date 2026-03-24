@@ -3683,6 +3683,7 @@ GameObject:
   - component: {fileID: 889880320}
   - component: {fileID: 889880319}
   - component: {fileID: 889880323}
+  - component: {fileID: 889880324}
   m_Layer: 5
   m_Name: ShopCanvas
   m_TagString: Untagged
@@ -3789,6 +3790,51 @@ MonoBehaviour:
   imageShop: {fileID: 913437777}
   inventoryMenu: {fileID: 2088347587}
   imageInventory: {fileID: 1993178234}
+--- !u!114 &889880324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889880318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e57fb257a289d41980852c0ed614ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allShopItems:
+  - IDItem: 1
+    nameItem: Torrente, presidente
+    descriptionItem: "Han pasado a\xF1os desde su \xFAltima y desastrosa \u201Cmisi\xF3n\u201D,
+      pero Jos\xE9 Luis Torrente est\xE1 convencido de que Espa\xF1a pasa su momento
+      m\xE1s cr\xEDtico\u2026 y que s\xF3lo \xE9l puede salvarla"
+    imageItem: {fileID: 21300000, guid: b642d8f82535b3b4c8337971f3bb1d83, type: 3}
+    money: 5.99
+    quantityItem: 0
+  - IDItem: 2
+    nameItem: Agua
+    descriptionItem: Es un liquido
+    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+    money: 1
+    quantityItem: 0
+  - IDItem: 3
+    nameItem: Leche
+    descriptionItem: Para beber
+    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+    money: 0.85
+    quantityItem: 0
+  - IDItem: 4
+    nameItem: Harina
+    descriptionItem: Echa de trigo
+    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+    money: 2
+    quantityItem: 0
+  - IDItem: 5
+    nameItem: Pan
+    descriptionItem: Esta echo de trigo
+    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+    money: 2
+    quantityItem: 0
 --- !u!1001 &899849933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4631,7 +4677,6 @@ GameObject:
   - component: {fileID: 1020255758}
   - component: {fileID: 1020255761}
   - component: {fileID: 1020255762}
-  - component: {fileID: 1020255763}
   m_Layer: 5
   m_Name: ShopMenu
   m_TagString: Untagged
@@ -4755,50 +4800,7 @@ MonoBehaviour:
   moneyManager: {fileID: 1095304889}
   totalPriceResumeText: {fileID: 1856913083}
   resumeContainer: {fileID: 1134985253}
-  shopManager: {fileID: 1020255763}
---- !u!114 &1020255763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020255756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e57fb257a289d41980852c0ed614ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allShopItems:
-  - IDItem: 0
-    nameItem: 
-    descriptionItem: 
-    imageItem: {fileID: 0}
-    money: 0
-    quantityItem: 0
-  - IDItem: 0
-    nameItem: 
-    descriptionItem: 
-    imageItem: {fileID: 0}
-    money: 0
-    quantityItem: 0
-  - IDItem: 0
-    nameItem: 
-    descriptionItem: 
-    imageItem: {fileID: 0}
-    money: 0
-    quantityItem: 0
-  - IDItem: 0
-    nameItem: 
-    descriptionItem: 
-    imageItem: {fileID: 0}
-    money: 0
-    quantityItem: 0
-  - IDItem: 0
-    nameItem: 
-    descriptionItem: 
-    imageItem: {fileID: 0}
-    money: 0
-    quantityItem: 0
+  shopManager: {fileID: 889880324}
 --- !u!1001 &1049310966
 PrefabInstance:
   m_ObjectHideFlags: 0
