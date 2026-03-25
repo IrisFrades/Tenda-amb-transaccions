@@ -2376,7 +2376,7 @@ PrefabInstance:
       objectReference: {fileID: 1134985253}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.money
-      value: 0.85
+      value: 5.99
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.IDItem
@@ -2384,15 +2384,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.nameItem
-      value: Leche
+      value: Poster SmallVille
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+      objectReference: {fileID: 21300000, guid: c61145133af382f4eadc8804bfb67085, type: 3}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.descriptionItem
-      value: Para beber
+      value: Poser serie SmallVille de Clark atado
       objectReference: {fileID: 0}
     - target: {fileID: 856050728337666998, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3213,7 +3213,7 @@ PrefabInstance:
       objectReference: {fileID: 1134985253}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.money
-      value: 2
+      value: 24.99
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.IDItem
@@ -3221,15 +3221,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.nameItem
-      value: Pan
+      value: Funko Lois Lane
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+      objectReference: {fileID: 21300000, guid: ed5a38c412c0cce47bb486194f2189dc, type: 3}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.descriptionItem
-      value: Esta echo de trigo
+      value: Funko Lois Lane original de SmallVille
       objectReference: {fileID: 0}
     - target: {fileID: 856050728337666998, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3804,36 +3804,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allShopItems:
   - IDItem: 1
-    nameItem: Torrente, presidente
-    descriptionItem: "Han pasado a\xF1os desde su \xFAltima y desastrosa \u201Cmisi\xF3n\u201D,
-      pero Jos\xE9 Luis Torrente est\xE1 convencido de que Espa\xF1a pasa su momento
-      m\xE1s cr\xEDtico\u2026 y que s\xF3lo \xE9l puede salvarla"
-    imageItem: {fileID: 21300000, guid: b642d8f82535b3b4c8337971f3bb1d83, type: 3}
-    money: 5.99
+    nameItem: Camiseta SmallVille
+    descriptionItem: Camiseta con una imagen impresa de los personajes de SmallVille
+    imageItem: {fileID: 21300000, guid: 879cd09e72b303e4ebd2601beecd5456, type: 3}
+    money: 9.99
     quantityItem: 0
   - IDItem: 2
-    nameItem: Agua
-    descriptionItem: Es un liquido
-    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
-    money: 1
+    nameItem: Funko Clark Kent
+    descriptionItem: Funko Clark Kent de la serie SmallVille 2001
+    imageItem: {fileID: 21300000, guid: ff334f1a59561e643abff167dbeb817c, type: 3}
+    money: 24.99
     quantityItem: 0
   - IDItem: 3
-    nameItem: Leche
-    descriptionItem: Para beber
-    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
-    money: 0.85
+    nameItem: Poster SmallVille
+    descriptionItem: Poser serie SmallVille de Clark atado
+    imageItem: {fileID: 21300000, guid: c61145133af382f4eadc8804bfb67085, type: 3}
+    money: 5.99
     quantityItem: 0
   - IDItem: 4
-    nameItem: Harina
-    descriptionItem: Echa de trigo
-    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
-    money: 2
+    nameItem: Collar Lana Lang
+    descriptionItem: Collar original echo con cryptonita real
+    imageItem: {fileID: 21300000, guid: 99a2bd24ab9843e4eb23d3304dcdd85f, type: 3}
+    money: 130.99
     quantityItem: 0
   - IDItem: 5
-    nameItem: Pan
-    descriptionItem: Esta echo de trigo
-    imageItem: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
-    money: 2
+    nameItem: Funko Lois Lane
+    descriptionItem: Funko Lois Lane original de SmallVille
+    imageItem: {fileID: 21300000, guid: ed5a38c412c0cce47bb486194f2189dc, type: 3}
+    money: 24.99
     quantityItem: 0
 --- !u!1001 &899849933
 PrefabInstance:
@@ -5172,7 +5170,7 @@ PrefabInstance:
       objectReference: {fileID: 1134985253}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.money
-      value: 1
+      value: 24.99
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.IDItem
@@ -5180,15 +5178,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.nameItem
-      value: Agua
+      value: Funko Clark Kent
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+      objectReference: {fileID: 21300000, guid: ff334f1a59561e643abff167dbeb817c, type: 3}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.descriptionItem
-      value: Es un liquido
+      value: Funko Clark Kent de la serie SmallVille 2001
       objectReference: {fileID: 0}
     - target: {fileID: 856050728337666998, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8204,7 +8202,7 @@ PrefabInstance:
       objectReference: {fileID: 1134985253}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.money
-      value: 2
+      value: 130.99
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.IDItem
@@ -8212,15 +8210,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.nameItem
-      value: Harina
+      value: Collar Lana Lang
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: 3a9cba94eb07fec4ab75dc2f4b546a64, type: 3}
+      objectReference: {fileID: 21300000, guid: 99a2bd24ab9843e4eb23d3304dcdd85f, type: 3}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.descriptionItem
-      value: Esta echo de trigo
+      value: Collar original echo con cryptonita real
       objectReference: {fileID: 0}
     - target: {fileID: 856050728337666998, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8719,7 +8717,7 @@ PrefabInstance:
       objectReference: {fileID: 1134985253}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.money
-      value: 5.99
+      value: 9.99
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.IDItem
@@ -8727,17 +8725,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.nameItem
-      value: Torrente, presidente
+      value: Camiseta SmallVille
       objectReference: {fileID: 0}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.imageItem
       value: 
-      objectReference: {fileID: 21300000, guid: b642d8f82535b3b4c8337971f3bb1d83, type: 3}
+      objectReference: {fileID: 21300000, guid: 879cd09e72b303e4ebd2601beecd5456, type: 3}
     - target: {fileID: 508569718276187743, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: itemInfoInstance.descriptionItem
-      value: "Han pasado a\xF1os desde su \xFAltima y desastrosa \u201Cmisi\xF3n\u201D,
-        pero Jos\xE9 Luis Torrente est\xE1 convencido de que Espa\xF1a pasa su momento
-        m\xE1s cr\xEDtico\u2026 y que s\xF3lo \xE9l puede salvarla"
+      value: Camiseta con una imagen impresa de los personajes de SmallVille
       objectReference: {fileID: 0}
     - target: {fileID: 856050728337666998, guid: 7323f0cbc0143e04db1ff3b96d79e03d, type: 3}
       propertyPath: m_AnchorMax.y

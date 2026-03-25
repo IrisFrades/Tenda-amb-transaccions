@@ -41,7 +41,13 @@ public class ResumeShopManager : MonoBehaviour
             //aqui guardamos cada item que se ha comprado a la base de datos
             foreach (Item item in resumeItems)
             {
-                dbManager.InsertItemToDB(item);
+                bool ok = dbManager.BuyItemTransaction(item, newMoney); //Control d'errors
+
+                if (!ok)
+                {
+                    Debug.LogError("La compra ha fallat. No s'haN restat diners ni afegit l'item al inventari.");
+                    return;
+                }
 
                 inventoryManager.AddItemToInventory(item.nameItem, item.quantityItem, item.imageItem, item.descriptionItem, item.money);
             }
