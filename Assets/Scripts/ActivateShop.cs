@@ -11,6 +11,7 @@ public class ActivateShop : MonoBehaviour
     public GameObject inventoryMenu;
     public GameObject imageInventory;
 
+    public Button ExitButton;
     private void Awake()
     {
         imageShop.SetActive(false);
@@ -38,6 +39,11 @@ public class ActivateShop : MonoBehaviour
     {
         inventoryMenu.SetActive(false);
         imageInventory.SetActive(false);
+    }
+
+    public void exitButton()
+    {
+        Application.Quit();
     }
 
 }
