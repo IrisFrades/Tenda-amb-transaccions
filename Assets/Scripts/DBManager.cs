@@ -286,5 +286,52 @@ public class DBManager : MonoBehaviour
         return items;
     }
 
+    //Metode que junta les dues operacions,actualitza els diners i actualitza o afegeix els items
+    public bool BuyItemTransaction(Item item, float newMoney)
+    {
+        using (var connection = new SqliteConnection(dbPath))
+        {
+            connection.Open();
+
+            using (var transaction = connection.BeginTransaction())
+            {
+                try
+                {
+                    // Actualitzar diners
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText = "UPDATE User SET money = @money WHERE ID = 1";
+                        command.Parameters.AddWithValue("@money", newMoney);
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Afegir o actualitzar item
+                    using (var command = connection.CreateCommand())
+                    {
+                        command.CommandText =
+                            "INSERT OR REPLACE INTO Item (name, description, quantity) " +
+                            "VALUES (@name, @description, @quantity)";
+
+                        command.Parameters.AddWithValue("@name", item.nameItem);
+                        command.Parameters.AddWithValue("@description", item.descriptionItem);
+                        command.Parameters.AddWithValue("@quantity", item.quantityItem);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Si tot va bé  es guardan els canvis 
+                    transaction.Commit();
+                    return true;
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.LogError("ERROR EN LA COMPRA: " + ex.Message);
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
+    }
+
 
 }
